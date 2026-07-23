@@ -1,8 +1,3 @@
-const progress=document.getElementById("progress"),backTop=document.getElementById("backTop"),menuBtn=document.getElementById("menuBtn"),sidebar=document.getElementById("sidebar");
-const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`;backTop.classList.toggle("show",scrollY>700)};addEventListener("scroll",update,{passive:true});update();
-backTop.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
-menuBtn.addEventListener("click",()=>{const open=sidebar.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.textContent=open?"×":"☰"});
-document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>{sidebar.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}));
-document.querySelectorAll("[data-tabs]").forEach(group=>{const buttons=group.querySelectorAll("[data-tab]"),panels=group.querySelectorAll(".tab-panel");buttons.forEach(btn=>btn.addEventListener("click",()=>{buttons.forEach(b=>b.classList.remove("active"));panels.forEach(p=>p.classList.remove("active"));btn.classList.add("active");document.getElementById(btn.dataset.tab).classList.add("active")}))});
-const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.08});document.querySelectorAll(".reveal").forEach(el=>reveal.observe(el));
-const sections=[...document.querySelectorAll("main section[id]")],links=[...document.querySelectorAll("nav a")];const spy=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-35% 0px -55% 0px"});sections.forEach(s=>spy.observe(s));
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
+if(menu&&nav)menu.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));

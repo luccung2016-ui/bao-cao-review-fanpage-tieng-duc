@@ -7,7 +7,7 @@ Website báo cáo chiến lược dạng static, responsive, không cần backen
 - `index.html`: toàn bộ nội dung và cấu trúc báo cáo.
 - `styles.css`: hệ thống giao diện, responsive và animation.
 - `script.js`: menu mobile, progress bar, tabs, scroll reveal và back-to-top.
-- `assets/pne-logo.svg`: logo nhận diện PNE dạng vector.
+- `pne logo.svg`: logo nhận diện PNE dạng vector.
 - `.github/workflows/pages.yml`: tự động triển khai GitHub Pages.
 
 ## Chỉnh sửa
